@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/" title="Home"  description="The home page">
+      <siteMapNode url="/Store/ListTransactions" title="Transactions"  description="List of SAP Trannsacctions" />
+      <siteMapNode url="/Store" title="Modules"  description="List of SAP Modules" />
+      <siteMapNode url="" title="Tables"  description="List of SAP Tables" />
+      <siteMapNode url="" title="Manuals"  description="List of SAP Tables" />
+    </siteMapNode>
+</siteMap>

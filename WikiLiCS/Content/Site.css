@@ -1,0 +1,278 @@
+﻿body 
+{
+    
+    font: 11px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+    background-color: #b6b6b6;
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+    
+}
+#main
+{
+    position:absolute;
+    margin-left:50%;
+    left:-512px;
+    width:1024px;
+    height:auto;
+    text-align:left;
+    background-color:#f0f1f3;
+    padding-top:110px;
+    padding-bottom:20px;
+    padding-left:10px;
+    padding-right:10px;
+    -moz-box-shadow: 0px 0px 10px 2px #172228;
+    -webkit-box-shadow: 0px 0px 10px 2px #172228;
+}
+#content
+{
+    position:static;
+    margin:auto;    
+    text-align:left;
+    background-color:#f0f1f3;
+}
+#tituloIzq
+{
+    padding:0px;
+    float:left;
+    height:30px;
+}
+#tituloDer
+{
+    padding:0px;
+    float:right;
+    height:30px;
+}
+#tituloCrea
+{
+    padding:0px;
+    height:40px;
+    clear: both;
+    float:left;
+}
+#restos
+{
+    position:static    ;
+    float:left;
+    background-color:#f0f1f3;
+    
+    
+}
+
+a:link {
+    color: #034af3;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #505abc;
+}
+
+a:hover {
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active {
+    color: #12eb87;
+}
+
+p, ul {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color:  #8A8575;
+}
+
+#logindisplay a:link {
+    color: #8A8575;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color:#f0f0f0;
+    text-decoration: none;
+}
+/* TAB MENU   
+----------------------------------------------------------
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}
+*/
+#footer
+{
+    font-family: Calibri,Arial,Constantia, Georgia, serif;
+    background-color:#172228;
+    text-align:center;
+    position:fixed;
+    clear: both;
+	text-align: center;
+	width:100%;
+	height:40px;
+	bottom: 0px;
+	color:White;
+	clear:both;
+}   
+
+#menucontainer
+{
+    padding:26px 10px 10px 0px;
+} 
+
+textarea
+{
+    width: 500px;
+    height:100px;
+    border: 1px solid #8A8575;
+    -khtml-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+}
+input#Code.text-box.single-line,input#Description.text-box.single-line,input#TransactionURL.text-box.single-line
+{
+    width: 500px;
+    border: 1px solid #8A8575;
+    -khtml-border-radius: 0.4em;
+    -moz-border-radius: 0.4em;
+}
+    
+#ListTransactions
+{
+    border: 1px solid #8A8575;
+    width:100%;
+    border-collapse:collapse;
+}
+
+#ListTransactions th
+{
+    border: 1px solid #8A8575;
+    font-family: Calibri,Arial,Constantia, Georgia, serif;
+    background-color:#49545a;
+    color:#c5cbc9;   
+}
+#ListTransactions tr
+{
+    border: 1px solid #8A8575;
+}
+
+td.linkDetail a:link {
+    color: #8A8575;
+    
+}
+td.linkDetail a:visited {
+    color: #49545a;
+}
+
+td.linkDetail a:hover {
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+td.linkDetail a:active {
+    color: #12eb87;
+}
+.display-field
+{
+    
+    text-decoration:bold;
+    border:3px;
+    font-size:x-large;
+}
+#grid
+{
+    clear:both;
+    width:100%;
+    }
+.grid
+{
+    Color:Black;
+    border:1px;
+    border-color:Black;
+    width:100%;
+}
+.grid tr
+{
+    max-height:15px;
+    height:10px;
+    overflow:hidden;}
+.grid td     
+{
+    max-width:40px;
+    overflow:hidden;
+}
+.head  a:link 
+{
+    color:White;
+ }
+.head  a:visited
+{
+    color:White;
+ }
+
+.head
+{
+    Color:White;
+    background-color:#475258;
+    font-family:Calibri,Arial,Constantia, Georgia, serif;
+}
+.alt
+{
+    background-color:#c7c7c7;  
+}
+.Actions
+{width:150px;}
