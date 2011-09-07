@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ApplicationServices-Web.config Connection String" description="ApplicationServices Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultvalue="Data Source=saptest2;Initial Catalog=GAPLIC;Persist Security Info=False;User ID=GUSPIRA;Password=Consultor!;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\root\\WikiLiCS\\WikiLiCS\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationServices']/@connectionString" />
+  </parameter>
+  <parameter name="WikiLiCSEntities-Web.config Connection String" description="WikiLiCSEntities Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultvalue="Data Source=saptest2;Initial Catalog=GAPLIC;Persist Security Info=False;User ID=GUSPIRA;Password=Consultor!;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\root\\WikiLiCS\\WikiLiCS\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WikiLiCSEntities']/@connectionString" />
+  </parameter>
+</parameters>

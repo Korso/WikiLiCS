@@ -186,6 +186,7 @@
     <Content Include="Views\Store\EditTransaction.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Transaction.cshtml" />
     <Content Include="Views\Store\DeleteTransaction.cshtml" />
+    <Content Include="Views\Store\ListTransactions2.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

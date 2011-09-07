@@ -5,3 +5,10 @@ C:\Users\root\Documents\Proyectos\WikiLiCS\WikiLiCS\bin\EntityFramework.dll
 C:\Users\root\Documents\Proyectos\WikiLiCS\WikiLiCS\bin\EntityFramework.xml
 C:\Users\root\Documents\Proyectos\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.dll
 C:\Users\root\Documents\Proyectos\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.pdb
+C:\Users\root\WikiLiCS\WikiLiCS\bin\WikiLiCS.dll
+C:\Users\root\WikiLiCS\WikiLiCS\bin\WikiLiCS.pdb
+C:\Users\root\WikiLiCS\WikiLiCS\bin\EntityFramework.dll
+C:\Users\root\WikiLiCS\WikiLiCS\bin\EntityFramework.xml
+C:\Users\root\WikiLiCS\WikiLiCS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\root\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.dll
+C:\Users\root\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.pdb

@@ -1,0 +1,109 @@
+﻿@model WikiLiCS.Models.PaginaDeTransaccionesViewModel
+@using WikiLiCS.Helpers
+@{
+    ViewBag.Title = "Index";
+    
+    var totalPagina = new int();
+    if ((Model.NumeroDeTransacciones % Model.TransaccionesPorPagina) > 0)
+    {totalPagina = (Model.NumeroDeTransacciones / Model.TransaccionesPorPagina)+1;}
+    else
+    {totalPagina = (Model.NumeroDeTransacciones / Model.TransaccionesPorPagina);}
+    var orden="ASC";
+    if (@Model.sortDir == "ASC") { orden = "DESC"; } else { orden = "ASC"; }
+
+}
+
+<div id ="titulo"><h2>Index of transactions</h2><h1>@ViewBag.Module</h1>
+<div id ="tituloIzq">
+        @Html.ActionLink("Create New", "CreateTransaction")
+</div>
+<div id ="tituloDer">
+    @if (totalPagina>1) {
+    @Html.ActionLink("<<Primera", "ListTransactions2", new { page = 1, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+    <text> - </text>
+        if (totalPagina > 2) {        
+            @Html.ActionLink("<Ant.", "ListTransactions2", new { page = @Model.PaginaActual - 1, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+            <text> - </text>
+            @Html.ActionLink("Sig.>", "ListTransactions2", new { page = @Model.PaginaActual + 1, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+            <text> - </text>}
+    @Html.ActionLink("Ultima>>", "ListTransactions2", new { page = totalPagina, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+    }
+</div>
+</div>
+
+<div id="grid">
+
+
+<table id="ListTransactions">
+    <tr>
+        <th></th>
+
+        <th>
+            
+            @Html.ActionLink("Code", "ListTransactions2", new { page = @Model.PaginaActual, sort = "Code", sortDir = @Model.sortDir, filtro = @Model.filtro }) 
+            
+        </th>
+        <th>            
+             @*@Html.ActionLink("Description", "ListTransactionsOrder", new { orderby = ViewBag.DescriptionSortParm }) *@
+             @Html.ActionLink("Description", "ListTransactions2", new { page = @Model.PaginaActual, sort = "Description", sortDir = @Model.sortDir, filtro = @Model.filtro })
+        </th>
+        <th>
+            Methods
+        </th>
+        <th>
+            Parameters
+        </th>
+    </tr>
+
+@foreach (var item in Model.Transacciones)
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.TransactionId }) |
+            @Html.ActionLink("Edit", "EditTransaction", new { id = item.TransactionId }) |
+            @Html.ActionLink("Delete", "DeleteTransaction", new { id = item.TransactionId })
+        </td>
+
+        <td class="linkDetail">
+            @Html.ActionLink(@Html.Truncate(@item.Code, 10), "Details", new { ID = item.TransactionId })
+        </td>
+        <td class="linkDetail">
+         @if (@item.Description != null)
+         {
+                @Html.ActionLink(@Html.Truncate(@item.Description, 50), "Details", new { ID = item.TransactionId })
+         }
+        </td>
+        <td class="linkDetail">
+            @if (@item.Methods != null)
+            {
+                @Html.ActionLink(@Html.Truncate(@item.Methods, 35), "Details", new { ID = item.TransactionId })
+            }
+        </td>
+        <td class="linkDetail">
+
+            @if (@item.Parameters != null)
+            {
+                @Html.ActionLink(@Html.Truncate(@item.Parameters, 35), "Details", new { ID = item.TransactionId })
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+
+ @if (totalPagina > 1)
+ {
+     for (int tr = 1; tr <= totalPagina; tr++)
+     {
+        @Html.ActionLink(tr.ToString(), "ListTransactions2", new { page = tr, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro });
+        <text> - </text>
+    }
+}
+
+
+</div>    
+    

@@ -12,5 +12,9 @@ namespace WikiLiCS.Models
         public int NumeroDeTransacciones { get; set; }
         public IEnumerable<Transaction> Transacciones { get; set; }
         public int TransaccionesPorPagina { get; set; }
+        public int PaginaActual { get; set; }
+        public string Sort { get; set; }
+        public string sortDir { get; set; }
+        public string filtro { get; set; }
     }
 }

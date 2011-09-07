@@ -1,0 +1,113 @@
+﻿<head>
+    <link href="../../Content/header.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/menu.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-1.4.4.js" type="text/javascript"></script>
+</head>
+
+@model IEnumerable<WikiLiCS.Models.Transaction>
+@*@model WikiLiCS.Models.PaginaDeTransaccionesViewModel*@
+@using WikiLiCS.Helpers
+@{
+    ViewBag.Title = "Index";
+    /*WebGrid grid = new WebGrid(Model);*/
+    WebGrid grid = new WebGrid(source: Model, defaultSort: "Code", rowsPerPage: 20, ajaxUpdateContainerId: "grid");
+    /*WebGrid grid = new WebGrid(rowsPerPage: Model.TransaccionesPorPagina, ajaxUpdateContainerId: "grid");
+    grid.Bind(Model.Transacciones, autoSortAndPage: false, rowCount: Model.NumeroDeTransacciones);*/
+    
+}
+<div id ="tituloIzq"><h2>Index of transactions</h2></div>
+<div id ="tituloDer"><h1>@ViewBag.Module</h1></div>
+<div id="tituloCrea">
+<p>
+    @Html.ActionLink("Create New", "CreateTransaction")
+</p>
+</div>
+<div id="grid">
+@grid.GetHtml(
+    @*headerStyle, footerStyle, rowStyle, alternatingRowStyle, y selectedRowStyle*@
+    caption: @ViewBag.Module,
+    tableStyle: "grid",
+    headerStyle: "head",
+    alternatingRowStyle: "alt",
+    mode: WebGridPagerModes.All,
+    firstText: "<< Primera",
+    previousText: "< Anterior",
+    nextText: "Siguiente >",
+    lastText: "Última >>",
+    columns: new[] {
+    grid.Column("",header: "Actions",style:"Actions",format: @<text>
+                    @Html.ActionLink("Details", "Details", new { id = item.TransactionId }) |
+                    @Html.ActionLink("Edit", "EditTransaction", new { id = item.TransactionId }) |
+                    @Html.ActionLink("Delete", "DeleteTransaction", new { id = item.TransactionId })
+                  </text>),
+    grid.Column("Code",header: "Code",),
+    grid.Column("Description"),
+    @*grid.Column("Description",format: @<a href=@string.Concat("Details/",@item.TransactionId)>@Html.Truncate(@item.Description,15)</a>),*@
+    grid.Column("Methods"),
+    grid.Column("Parameters", canSort: false),
+    @*  grid.Column("EMail",format: @<a href="mailto:@item.Email">@item.Email</a>),
+    grid.Column("FechaNacimiento",header: "Fecha de nacimiento",format: p=>p.FechaNacimiento.ToShortDateString()),
+    grid.Column("NumeroDeHijos", header: "Número de hijos",style: "a-la-derecha"*@
+})
+</div>
+
+@*
+<table id="ListTransactions">
+    <tr>
+        <th></th>
+
+        <th>
+            
+            @Html.ActionLink("Code", "ListTransactionsOrder", new { orderby = ViewBag.CodeSortParm, tr = Model }, null) 
+            
+        </th>
+        <th>            
+             @Html.ActionLink("Description", "ListTransactionsOrder", new { orderby = ViewBag.DescriptionSortParm }) 
+        </th>
+        <th>
+            Methods
+        </th>
+        <th>
+            Parameters
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "EditTransaction", new { id = item.TransactionId }) |
+            @Html.ActionLink("Delete", "DeleteTransaction", new { id = item.TransactionId })
+        </td>
+
+        <td class="linkDetail">
+            @Html.ActionLink(@Html.Truncate(@item.Code, 10), "Details", new { ID = item.TransactionId })
+        </td>
+        <td class="linkDetail">
+         @if (@item.Description != null)
+         {
+                @Html.ActionLink(@Html.Truncate(@item.Description, 50), "Details", new { ID = item.TransactionId })
+         }
+        </td>
+        <td class="linkDetail">
+            @if (@item.Methods != null)
+            {
+                @Html.ActionLink(@Html.Truncate(@item.Methods, 35), "Details", new { ID = item.TransactionId })
+            }
+        </td>
+        <td class="linkDetail">
+
+            @if (@item.Parameters != null)
+            {
+                @Html.ActionLink(@Html.Truncate(@item.Parameters, 35), "Details", new { ID = item.TransactionId })
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>
+*@

@@ -13,90 +13,16 @@ namespace WikiLiCS.Controllers
     public class StoreController : Controller
     {
         WikiLiCSEntities storeDB= new WikiLiCSEntities();
-        //
-        // GET: /Store/
-        //public ActionResult ListTransactions(int page = 1, string sort = "Code", string sortDir = "ASC")////////////////////////////////////////////////////////////////
-        //{
-        //    const int transaccionesPorPagina = 20;
-        //    var numTransacciones = CountTransactions();
-            
-        //    IEnumerable<Transaction> transactions;
-        //    Direction dir = sortDir.Equals("ASC", StringComparison.CurrentCultureIgnoreCase) ? Direction.Ascendente : Direction.Descendente;
-        //    switch (sort.ToLower())
-        //    {
-        //        case "code":
-        //            transactions = GetPagesTransactions( page, transaccionesPorPagina, p => p.Code, dir);
-        //            break;
-        //        case "description":
-        //            transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Description, dir);
-        //            break;
-        //        case "methods":
-        //            transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Methods, dir);
-        //            break;
-        //        default:
-        //            transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Code, dir);
-        //            break;
-        //    }
-        //    var datos=new PaginaDeTransaccionesViewModel()
-        //    {
-        //        NumeroDeTransacciones=numTransacciones,
-        //        TransaccionesPorPagina=transaccionesPorPagina,
-        //        Transacciones=transactions
-        //    };
-        //    return View("ListTransactions", datos);
-        //}
+        
         public ActionResult Index()//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {
             var modules = storeDB.Modules.Include("Transactions").ToList();
             return View(modules);
         }
+
         public ActionResult Browse(string module)///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {
-            //const int transaccionesPorPagina = 20;
-            //var numTransacciones = storeDB.Transactions.Where(s=>s.Module.Name==module).Count();
-
-            //IEnumerable<Transaction> transactions;
-            //Direction dir = sortDir.Equals("ASC", StringComparison.CurrentCultureIgnoreCase) ? Direction.Ascendente : Direction.Descendente;
-            //switch (sort.ToLower())
-            //{
-            //    case "code":
-            //        transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Code, p => p.Code, dir, module);
-            //        break;
-            //    case "description":
-            //        transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Description, dir, module);
-            //        break;
-            //    case "methods":
-            //        transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Methods, dir, module);
-            //        break;
-            //    default:
-            //        transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Code, dir, module);
-            //        break;
-            //}
-            //var datos = new PaginaDeTransaccionesViewModel()
-            //{
-            //    NumeroDeTransacciones = numTransacciones,
-            //    TransaccionesPorPagina = transaccionesPorPagina,
-            //    Transacciones = transactions
-            //};
-            //return View("ListTransactions", datos);
-            //IList<Transaction> tr=storeDB.Transactions.Where(s=>s.Module.Name==module).ToList();
-            //return RedirectToAction("ListTransactions", new { transaction = tr });
-            //return RedirectToAction("ListTransactions", new {transaction = tr, module = module, page = 1 });
-            //return RedirectToAction("ListTransactions", new {module=module});
-            //int transaccionesPorPagina = 20;
-            //IEnumerable<Transaction> transactions = storeDB.Transactions.Where(s => s.Module.Name == module).ToList();
-            //var numTransacciones = transactions.Count();
-            var omodule=storeDB.Modules.Where(s=> s.Name==module).Single();
-            ViewBag.Module = omodule.Name + " - " + omodule.Description;
-            //var datos = new PaginaDeTransaccionesViewModel()
-            //{
-            //    NumeroDeTransacciones = numTransacciones,
-            //    TransaccionesPorPagina = transaccionesPorPagina,
-            //    Transacciones = transactions
-            //};
-            ////return RedirectToAction("ListTransactionsForModul", transactions);
-            var datos = storeDB.Transactions.Where(s => s.Module.Name == module);
-            return View("ListTransactions", datos);
+            return RedirectToAction("ListTransactions2", new { filtro=module});
         }
 
 
@@ -110,31 +36,6 @@ namespace WikiLiCS.Controllers
             
         }
 
-
-        //public ActionResult ListTransactionsOrder(string orderby, IEnumerable<Transaction> tr)//////////////////////////////////////////////////////////////////
-        //{
-        //    ViewBag.CodeSortParm = String.IsNullOrEmpty(orderby) ? "Code desc" : "";
-        //    ViewBag.DescriptionSortParm = String.IsNullOrEmpty(orderby) ? "Description desc" : "";
-        //    /*var transactions = storeDB.Transactions;*/
-        //    var transactions = from s in storeDB.Transactions
-        //                       select s;
-        //    switch (orderby)
-        //    {
-        //        case "Code desc":
-        //            transactions = transactions.OrderByDescending(s => s.Code);
-        //            break;
-        //        case "Description":
-        //            transactions = transactions.OrderBy(s => s.Description);
-        //            break;
-        //        case "Description desc":
-        //            transactions = transactions.OrderByDescending(s => s.Description);
-        //            break;
-        //        default:
-        //            transactions = transactions.OrderBy(s => s.Code);
-        //            break;
-        //    }
-        //    return View("ListTransactions",transactions);
-        //}     
         public ActionResult Details(int id)//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {
             var transaction = storeDB.Transactions.Find(id);
@@ -184,11 +85,14 @@ namespace WikiLiCS.Controllers
 
         public ActionResult BrowseSearch(string SearchString)//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         {
-            string cadena = SearchString.ToUpper();
-            var partial1 = storeDB.Transactions.Where(s => s.Code.ToUpper().Contains(cadena));
-            var partial2 = storeDB.Transactions.Where(s => s.Description.ToUpper().Contains(cadena));
-            var transactions = partial1.Union(partial2);
-            return View("ListTransactions", transactions);
+
+            //string cadena = SearchString.ToUpper();
+            //var partial1 = storeDB.Transactions.Where(s => s.Code.ToUpper().Contains(cadena));
+            //var partial2 = storeDB.Transactions.Where(s => s.Description.ToUpper().Contains(cadena));
+            //var transactions = partial1.Union(partial2);
+            //return View("ListTransactions", transactions);
+            return RedirectToAction("ListTransactions2", new { filtro = SearchString });
+            
         }
         [Authorize(Roles = "Administrator")]
         public ActionResult CreateTransaction()//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -227,31 +131,114 @@ namespace WikiLiCS.Controllers
             var transactions = storeDB.Transactions.ToList();
             return View("ListTransactions", transactions);
         }
-        /*
-        public int CountTransactions()//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {
-            return storeDB.Transactions.Count();
-        }
-        
-        public IEnumerable<Transaction> GetPagesTransactions(int actualPage, int transactionsForPage, string orderC)//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        {
-            var o = orderC;
-            if (actualPage < 1) actualPage = 1;
-            var tr = storeDB.Transactions.OrderBy(
 
-
-            return storeDB.Transactions
-              .OrderBy(p=>p.Description)
-              .Skip((actualPage - 1) * transactionsForPage)
-              .Take(transactionsForPage)
-              .ToList();
-        }
-        public IEnumerable<Transaction> GetPagesTransactions<T>(int actualPage, int transactionsForPage, Expression<Func<Transaction, T>> ordenacion,  Direction dir)
+        //
+        // GET: /Store/
+        public ActionResult ListTransactions2(int page = 1, string sort = "Code", string sortDir = "ASC",string filtro="")////////////////////////////////////////////////////////////////
         {
+            const int transaccionesPorPagina = 20;
+            var numTransacciones = CountTransactions(filtro);
             
+            IEnumerable<Transaction> transactions;
+            Direction dir = sortDir.Equals("ASC", StringComparison.CurrentCultureIgnoreCase) ? Direction.Ascendente : Direction.Descendente;
+            switch (sort.ToLower())
+            {
+                case "code":
+                    transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Code, dir, filtro);
+                    break;
+                case "description":
+                    transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Description, dir, filtro);
+                    break;
+                case "methods":
+                    transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Methods, dir, filtro);
+                    break;
+                default:
+                    transactions = GetPagesTransactions(page, transaccionesPorPagina, p => p.Code, dir, filtro);
+                    break;
+            }
+            var datos = new PaginaDeTransaccionesViewModel()
+            {
+                NumeroDeTransacciones = numTransacciones,
+                TransaccionesPorPagina = transaccionesPorPagina,
+                Transacciones = transactions,
+                PaginaActual=page,
+                Sort=sort,
+                sortDir=sortDir,
+                filtro=filtro
+            };
+            
+                if(sortDir=="ASC")
+                    { datos.sortDir = "DESC"; }
+                 else { datos.sortDir = "ASC"; }
+            
+
+            return View("ListTransactions2", datos);
+        }
+
+        public IQueryable<Transaction> getQuery(string filtro)
+        {
+            IQueryable<Transaction> query;
+            if (filtro != "")
+            {
+                string[] split = filtro.Split(new Char[] { ':' });
+                switch (split[0].ToUpper())
+                {
+                    case "MODULE":
+                        var M = split[1].ToUpper();
+                        query = storeDB.Transactions.Where(p => p.Module.Name.ToUpper().Contains(M));
+                        break;
+                    case "DESCRIPTION":
+                        var D = split[1].ToUpper();
+                        query = storeDB.Transactions.Where(p => p.Description.ToUpper().Contains(D));
+                        break;
+                    default:
+                        string cadena = filtro.ToUpper();
+                        query = from e in storeDB.Transactions
+                                where e.Code.ToUpper().Contains(cadena) || e.Description.ToUpper().Contains(cadena)
+                                select e;
+                        break;
+                }
+            }
+            else
+            { query = storeDB.Transactions; }
+            return query;
+        }
+
+        public IEnumerable<Transaction> GetPagesTransactions<T>(int actualPage, int transactionsForPage, Expression<Func<Transaction, T>> ordenacion, Direction dir,string filtro)
+        {
+
             if (actualPage < 1) actualPage = 1;
             IQueryable<Transaction> query;
-            query = storeDB.Transactions;
+            query = getQuery(filtro);
+            //if (filtro!="")
+            //    { 
+                
+            //    string [] split = filtro.Split(new Char [] {':'});
+            //    switch (split[0].ToUpper()){
+            //        case "MODULE":
+            //            var M=split[1].ToUpper();
+            //            //query = storeDB.Transactions.Where(p => p.Module.Name.ToUpper() == M);
+            //            query = storeDB.Transactions.Where(p=>p.Module.Name.ToUpper().Contains(M));
+            //            break;
+            //        case "DESCRIPTION":
+            //            var D = split[1].ToUpper();
+            //            query = storeDB.Transactions.Where(p => p.Description.ToUpper().Contains(D));
+            //            break;
+            //        default:
+            //            string cadena = filtro.ToUpper();
+            //            //query = storeDB.Transactions.Where(s => s.Code.ToUpper().Contains(cadena)).Where(s => s.Description.ToUpper().Contains(cadena));
+            //            query = from e in storeDB.Transactions
+            //                     where e.Code.ToUpper().Contains(cadena) || e.Description.ToUpper().Contains(cadena)
+            //                     select e;
+            //            //query = storeDB.Transactions.Where(s => s.Code.ToUpper().Contains(cadena));
+            //            //query2 = storeDB.Transactions.Where(s => s.Description.ToUpper().Contains(cadena));
+            //            //query = query.Union(query2);
+            //            //return View("ListTransactions", transactions);
+            //            break;
+            //        }
+            //    }
+            //else
+            //    {query = storeDB.Transactions;}
 
             if (dir == Direction.Ascendente)
                 query = query.OrderBy(ordenacion);
@@ -268,9 +255,40 @@ namespace WikiLiCS.Controllers
             //            .Take(transactionsForPage)
             //            .ToList();
         }
-        */
+        public int CountTransactions(string filtro)//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {
+            IQueryable<Transaction> query;
+            query = getQuery(filtro);
+            return query.Count();
+            //if (filtro != "")
+            //{ return storeDB.Transactions.Where(p => p.Module.Name == filtro).Count(); }
+            //else
+            //{ return storeDB.Transactions.Count(); }
+        }
 
-
-
+        //public ActionResult ListTransactionsOrder(string orderby, IEnumerable<Transaction> tr)//////////////////////////////////////////////////////////////////
+        //{
+        //    ViewBag.CodeSortParm = String.IsNullOrEmpty(orderby) ? "Code desc" : "";
+        //    ViewBag.DescriptionSortParm = String.IsNullOrEmpty(orderby) ? "Description desc" : "";
+        //    /*var transactions = storeDB.Transactions;*/
+        //    var transactions = from s in storeDB.Transactions
+        //                       select s;
+        //    switch (orderby)
+        //    {
+        //        case "Code desc":
+        //            transactions = transactions.OrderByDescending(s => s.Code);
+        //            break;
+        //        case "Description":
+        //            transactions = transactions.OrderBy(s => s.Description);
+        //            break;
+        //        case "Description desc":
+        //            transactions = transactions.OrderByDescending(s => s.Description);
+        //            break;
+        //        default:
+        //            transactions = transactions.OrderBy(s => s.Code);
+        //            break;
+        //    }
+        //    return View("ListTransactions",transactions);
+        //}     
     }
 }

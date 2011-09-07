@@ -35,16 +35,18 @@
 }
 #tituloIzq
 {
-    padding:0px;
+
     float:left;
-    height:30px;
 }
 #tituloDer
 {
-    padding:0px;
-    float:right;
-    height:30px;
+float:right;
+    
 }
+#grid
+{
+    position:relative;
+    }
 #tituloCrea
 {
     padding:0px;
@@ -237,6 +239,7 @@ td.linkDetail a:active {
 {
     clear:both;
     width:100%;
+    
     }
 .grid
 {
