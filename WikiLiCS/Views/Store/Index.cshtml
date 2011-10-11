@@ -12,7 +12,14 @@
 <ul>
     @foreach (var module in Model)
     {
-        <li>@Html.ActionLink(module.Name + " - " + module.Description + " - (" + module.Transactions.Count + ")"     
-        , "Browse", "Store", new { Module = "Module:" + module.Name }, null)</li>
+@*        <li>@Html.ActionLink(module.Name + " - " + module.Description + " - (" + module.Transactions.Count + ")"     
+        , "Browse", "Store", new { Module = "Module:" + module.Name }, null)</li>*@
+        <li>
+        <text>
+        @module.Name - @module.Description - 
+        @Html.ActionLink("Transactions" + "(" + module.Transactions.Count + ")", "Browse", "Store", new { Module = "Module:" +  module.Name , Donde= "TR" }, null )
+        @Html.ActionLink("Tables" + "(" + module.Tables.Count + ")", "Browse", "Store", new { Module = "Module:" + module.Name, Donde = "TA" }, null) 
+        </text>
+        </li>
     }
 </ul>

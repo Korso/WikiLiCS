@@ -71,7 +71,10 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\Manual.cs" />
     <Compile Include="Models\Module.cs" />
+    <Compile Include="Models\PaginaDeManualesViewModel.cs" />
+    <Compile Include="Models\PaginaDeTablasViewModel.cs" />
     <Compile Include="Models\PaginaDeTransaccionesViewModel.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\Transaction.cs" />
@@ -79,12 +82,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\almacen.css" />
     <Content Include="Content\header.css" />
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\beta.jpg" />
     <Content Include="Content\Images\beta.png" />
     <Content Include="Content\Images\body.png" />
     <Content Include="Content\Images\cuerpo.jpg" />
+    <Content Include="Content\Images\Icon\word.png" />
     <Content Include="Content\Images\images %282%29.jpg" />
     <Content Include="Content\Images\images.jpg" />
     <Content Include="Content\Images\index1.png" />
@@ -187,6 +192,12 @@
     <Content Include="Views\Shared\EditorTemplates\Transaction.cshtml" />
     <Content Include="Views\Store\DeleteTransaction.cshtml" />
     <Content Include="Views\Store\ListTransactions2.cshtml" />
+    <Content Include="Views\Store\ListTables.cshtml" />
+    <Content Include="Views\Store\DetailsTables.cshtml" />
+    <Content Include="Views\Store\EditTable.cshtml" />
+    <Content Include="Views\Store\CreateTable.cshtml" />
+    <Content Include="Views\Store\ListManuals.cshtml" />
+    <Content Include="Views\Store\DeleteManual.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

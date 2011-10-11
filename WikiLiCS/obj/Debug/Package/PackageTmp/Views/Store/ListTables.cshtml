@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WikiLiCS.Models.Table>
+@using WikiLiCS.Helpers
+@{
+    ViewBag.Title = "ListTables";
+}
+
+<h2>ListTables</h2>
+
+
+<div id="grid">
+<table id="ListTransactions">
+    <tr>
+        <th></th>
+        <th>     
+            @*@Html.ActionLink("Code", "ListTransactions2", new { page = @Model.PaginaActual, sort = "Code", sortDir = @Model.sortDir, filtro = @Model.filtro }) *@
+            Name
+        </th>
+        <th>
+            Description            
+            @*@Html.ActionLink("Description", "ListTransactions2", new { page = @Model.PaginaActual, sort = "Description", sortDir = @Model.sortDir, filtro = @Model.filtro })*@
+        </th>
+        <th>
+            Info
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.TableId }) |
+            @Html.ActionLink("Edit", "EditTransaction", new { id = item.TableId }) |
+            @Html.ActionLink("Delete", "DeleteTransaction", new { id = item.TableId})
+        </td>
+
+        <td class="linkDetail">
+            @Html.ActionLink(@Html.Truncate(@item.Name, 10), "Details", new { ID = item.TableId})
+        </td>
+        <td class="linkDetail">
+         @if (@item.Description != null)
+         {
+                @Html.ActionLink(@Html.Truncate(@item.Description, 50), "Details", new { ID = item.TableId })
+         }
+        </td>
+        <td class="linkDetail">
+            @if (@item.Info != null)
+            {
+                @Html.ActionLink(@Html.Truncate(@item.Info, 35), "Details", new { ID = item.TableId })
+            }
+        </td>
+
+    </tr>
+}
+</table>
+
+</div>  

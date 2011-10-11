@@ -106,3 +106,26 @@ ul#navlist li a:hover
 	color: #f0f0f0;
 }
 /********************* End top navigation ***************************/
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color:  #8A8575;
+}
+
+#logindisplay a:link {
+    color: #8A8575;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color:#f0f0f0;
+    text-decoration: none;
+}

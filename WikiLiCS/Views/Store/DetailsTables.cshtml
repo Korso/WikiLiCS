@@ -1,0 +1,35 @@
+﻿@model WikiLiCS.Models.Table
+
+@{
+    ViewBag.Title = "DetailsTables";
+}
+
+<h2>DetailsTables</h2>
+
+<fieldset>
+    <legend>Table</legend>
+
+    <div class="display-label">ModuleID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ModuleID)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Info</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Info)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditTables", new { id=Model.TableId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

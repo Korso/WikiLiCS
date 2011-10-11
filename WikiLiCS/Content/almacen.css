@@ -1,0 +1,140 @@
+﻿#tituloCrea
+{
+    padding:0px;
+    height:40px;
+    clear: both;
+    float:left;
+}
+
+
+
+
+
+
+/* TAB MENU   
+----------------------------------------------------------
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}
+*/
+
+
+#menucontainer
+{
+    padding:26px 10px 10px 0px;
+} 
+
+
+    
+
+
+
+
+
+td.linkDetail a:link {
+    color: #8A8575;
+    
+}
+td.linkDetail a:visited {
+    color: #49545a;
+}
+
+td.linkDetail a:hover {
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+td.linkDetail a:active {
+    color: #12eb87;
+}
+
+.display-field
+{
+    
+    text-decoration:bold;
+    border:3px;
+    font-size:x-large;
+}
+
+.grid
+{
+    Color:Black;
+    border:1px;
+    border-color:Black;
+    width:100%;
+}
+.grid tr
+{
+    max-height:15px;
+    height:10px;
+    overflow:hidden;}
+.grid td     
+{
+    max-width:40px;
+    overflow:hidden;
+}
+.head  a:link 
+{
+    color:White;
+ }
+.head  a:visited
+{
+    color:White;
+ }
+
+.head
+{
+    Color:White;
+    background-color:#475258;
+    font-family:Calibri,Arial,Constantia, Georgia, serif;
+}
+.alt
+{
+    background-color:#c7c7c7;  
+}
+.Actions
+{width:150px;}

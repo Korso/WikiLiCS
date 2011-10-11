@@ -1,0 +1,56 @@
+﻿@model WikiLiCS.Models.PaginaDeManualesViewModel
+@using WikiLiCS.Helpers
+@{
+    ViewBag.Title = "ListManuals";
+}
+
+
+@*@{
+    var total = 0;
+    var totalMessage = "";
+    if(IsPost) {
+
+        // Retrieve the numbers that the user entered.
+        var num1 = Request["text1"];
+        var num2 = Request["text2"];
+
+        // Convert the entered strings into integers numbers and add.
+        total = num1.AsInt() + num2.AsInt();
+        totalMessage = "Total = " + total;
+    }
+}*@
+<h2>ListManuals</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@{
+    var filename=Path.GetFullPath("c:/MANUALconfigurador.png");
+    }
+<table>
+    <tr>
+        <td></td>
+        <th>Nombre</th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model.Manuals) {
+    <tr>
+    
+        <td>@Html.Image("/content/Images/Icon/word.png", "Image")
+
+        </td>
+        <td><a href='c:\cdinst.log'>@item.Name </a></td>
+        <td>@Html.ActionLink("Delete", "DeleteManual", new {p= item.ManualID })</td>
+    </tr>
+}
+
+</table>
+        <br />
+        @Request.Url
+        <br />
+        @Request.FilePath
+        <br />
+        @Request.MapPath(Request.FilePath)
+        <br />
+        @Request.RequestType

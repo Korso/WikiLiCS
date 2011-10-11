@@ -2,17 +2,15 @@
 @using WikiLiCS.Helpers
 @{
     ViewBag.Title = "Index";
-    
     var totalPagina = new int();
     if ((Model.NumeroDeTransacciones % Model.TransaccionesPorPagina) > 0)
-    {totalPagina = (Model.NumeroDeTransacciones / Model.TransaccionesPorPagina)+1;}
+        {totalPagina = (Model.NumeroDeTransacciones / Model.TransaccionesPorPagina)+1;}
     else
-    {totalPagina = (Model.NumeroDeTransacciones / Model.TransaccionesPorPagina);}
+        {totalPagina = (Model.NumeroDeTransacciones / Model.TransaccionesPorPagina);}
     var orden="ASC";
     if (@Model.sortDir == "ASC") { orden = "DESC"; } else { orden = "ASC"; }
 
 }
-
 <div id ="titulo"><h2>Index of transactions</h2><h1>@ViewBag.Module</h1>
 <div id ="tituloIzq">
         @Html.ActionLink("Create New", "CreateTransaction")
@@ -30,21 +28,14 @@
     }
 </div>
 </div>
-
 <div id="grid">
-
-
 <table id="ListTransactions">
     <tr>
         <th></th>
-
-        <th>
-            
+        <th>         
             @Html.ActionLink("Code", "ListTransactions2", new { page = @Model.PaginaActual, sort = "Code", sortDir = @Model.sortDir, filtro = @Model.filtro }) 
-            
         </th>
         <th>            
-             @*@Html.ActionLink("Description", "ListTransactionsOrder", new { orderby = ViewBag.DescriptionSortParm }) *@
              @Html.ActionLink("Description", "ListTransactions2", new { page = @Model.PaginaActual, sort = "Description", sortDir = @Model.sortDir, filtro = @Model.filtro })
         </th>
         <th>
@@ -89,7 +80,6 @@
         </td>
     </tr>
 }
-
 </table>
 
 

@@ -6,16 +6,14 @@ using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 namespace WikiLiCS.Models
 {
-    public class Table
+    public class Manual
     {
-        public int TableId { get; set; }
+        public int ManualID { get; set; }
         public int ModuleID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        [DataType(DataType.MultilineText)]
-        public string Info { get; set; }
+        public string linkURL { get; set; }
+        public string imageURL { get; set; }
         public Module Module { get; set; }
     }
 }
-
-        

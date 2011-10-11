@@ -11,5 +11,6 @@ namespace WikiLiCS.Models
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Table> Tables { get; set; }
+        public DbSet<Manual> Manuals { get; set; }
     }
 }

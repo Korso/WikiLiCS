@@ -43,7 +43,7 @@
                     @Html.ActionLink("Edit", "EditTransaction", new { id = item.TransactionId }) |
                     @Html.ActionLink("Delete", "DeleteTransaction", new { id = item.TransactionId })
                   </text>),
-    grid.Column("Code",header: "Code",),
+    grid.Column("Code",header: "Code"),
     grid.Column("Description"),
     @*grid.Column("Description",format: @<a href=@string.Concat("Details/",@item.TransactionId)>@Html.Truncate(@item.Description,15)</a>),*@
     grid.Column("Methods"),

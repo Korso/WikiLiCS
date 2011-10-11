@@ -1,0 +1,91 @@
+﻿@model WikiLiCS.Models.PaginaDeTablasViewModel           
+@using WikiLiCS.Helpers
+@{
+    ViewBag.Title = "ListTables";
+}
+
+@{
+    ViewBag.Title = "Index";
+    var totalPagina = new int();
+    if ((Model.NumeroDeTablas % Model.TablasPorPagina) > 0)
+    { totalPagina = (Model.NumeroDeTablas / Model.TablasPorPagina) + 1; }
+    else
+    { totalPagina = (Model.NumeroDeTablas / Model.TablasPorPagina); }
+    var orden="ASC";
+    if (@Model.sortDir == "ASC") { orden = "DESC"; } else { orden = "ASC"; }
+
+}
+<div id ="titulo"><h2>Index of tables</h2><h1>@ViewBag.Module</h1>
+    <div id ="tituloIzq">
+            @Html.ActionLink("Create New", "CreateTable")
+    </div>
+    <div id ="tituloDer">
+        @if (totalPagina>1) {
+        @Html.ActionLink("<<Primera", "ListTables", new { page = 1, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+        <text> - </text>
+            if (totalPagina > 2) {        
+                @Html.ActionLink("<Ant.", "ListTables", new { page = @Model.PaginaActual - 1, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+                <text> - </text>
+                @Html.ActionLink("Sig.>", "ListTables", new { page = @Model.PaginaActual + 1, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+                <text> - </text>}
+        @Html.ActionLink("Ultima>>", "ListTables", new { page = totalPagina, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro })
+        }
+    </div>
+</div>
+
+
+<div id="grid">
+<table id="ListTransactions">
+    <tr>
+        <th></th>
+        <th>     
+            @Html.ActionLink("Name", "ListTables", new { page = @Model.PaginaActual, sort = "Code", sortDir = @Model.sortDir, filtro = @Model.filtro })
+        </th>
+        <th>
+            @Html.ActionLink("Description", "ListTables", new { page = @Model.PaginaActual, sort = "Description", sortDir = @Model.sortDir, filtro = @Model.filtro })
+        </th>
+        <th>
+            Info
+        </th>
+    </tr>
+
+@foreach (var item in Model.Tablas)
+{
+    <tr>
+        <td>
+            @Html.ActionLink("Details", "DetailsTables", new { id = item.TableId }) |
+            @Html.ActionLink("Edit", "EditTable", new { id = item.TableId }) |
+            @Html.ActionLink("Delete", "DeleteTable", new { id = item.TableId})
+        </td>
+
+        <td class="linkDetail">
+            @Html.ActionLink(@Html.Truncate(@item.Name, 10), "DetailsTables", new { ID = item.TableId })
+        </td>
+        <td class="linkDetail">
+         @if (@item.Description != null)
+         {
+                @Html.ActionLink(@Html.Truncate(@item.Description, 50), "DetailsTables", new { ID = item.TableId })
+         }
+        </td>
+        <td class="linkDetail">
+            @if (@item.Info != null)
+            {
+                @Html.ActionLink(@Html.Truncate(@item.Info, 35), "DetailsTables", new { ID = item.TableId })
+            }
+        </td>
+
+    </tr>
+}
+</table>
+
+
+@if (totalPagina > 1)
+ {
+     for (int tr = 1; tr <= totalPagina; tr++)
+     {
+        @Html.ActionLink(tr.ToString(), "ListTables", new { page = tr, sort = @Model.Sort, sortDir = orden, filtro = @Model.filtro });
+        <text> - </text>
+    }
+}
+
+</div>  
