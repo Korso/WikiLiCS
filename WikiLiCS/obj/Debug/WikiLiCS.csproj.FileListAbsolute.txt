@@ -12,3 +12,10 @@ C:\Users\root\WikiLiCS\WikiLiCS\bin\EntityFramework.xml
 C:\Users\root\WikiLiCS\WikiLiCS\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\root\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.dll
 C:\Users\root\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.pdb
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\bin\WikiLiCS.dll
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\bin\WikiLiCS.pdb
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\bin\EntityFramework.dll
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\bin\EntityFramework.xml
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.dll
+C:\Users\root.CARLOS-SILVA\Documents\Visual Studio 2010\Projects\WikiLiCS\WikiLiCS\obj\Debug\WikiLiCS.pdb
